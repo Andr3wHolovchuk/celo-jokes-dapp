@@ -60,7 +60,7 @@ const loadJokes = async () => {
     var ratings = [];
 
     await $.get({
-        url: `http://localhost:4000/getratings?address=${kit.defaultAccount}`,
+        url: `https://curly-jazzy-cacao.glitch.me/getratings?address=${kit.defaultAccount}`,
         success: (data) => ratings = data.ratings
     });
 
@@ -73,7 +73,7 @@ const loadJokes = async () => {
 
             // ratings of a specific joke
             await $.get({
-                url: `http://localhost:4000/getratings?index=${index}`,
+                url: `https://curly-jazzy-cacao.glitch.me/getratings?index=${index}`,
                 success: (data) => spec = data
             });
 
@@ -118,7 +118,7 @@ const loadJokes = async () => {
         $('.like').on('click', function () {
             loader(true);
             $.get({
-                url: `http://localhost:4000/setrating?address=${kit.defaultAccount}&action=like&index=${$(this).attr("data-index")}`
+                url: `https://curly-jazzy-cacao.glitch.me/setrating?address=${kit.defaultAccount}&action=like&index=${$(this).attr("data-index")}`
             }).done(async (data) => {
                 return await loadJokes();
             })
@@ -128,7 +128,7 @@ const loadJokes = async () => {
         $('.dislike').on('click', function () {
             loader(true);
             $.get({
-                url: `http://localhost:4000/setrating?address=${kit.defaultAccount}&action=dislike&index=${$(this).attr("data-index")}`
+                url: `https://curly-jazzy-cacao.glitch.me/setrating?address=${kit.defaultAccount}&action=dislike&index=${$(this).attr("data-index")}`
             }).done(async (data) => {
                 return await loadJokes();
             })

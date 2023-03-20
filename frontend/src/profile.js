@@ -245,7 +245,7 @@ const loadJokes = async () => {
     
     // get ratings from a user
     await $.get({
-        url: `http://localhost:4000/getratings?address=${kit.defaultAccount}`,
+        url: `https://curly-jazzy-cacao.glitch.me/getratings?address=${kit.defaultAccount}`,
         success: (data) => ratings = data.ratings
     });
 
@@ -255,7 +255,7 @@ const loadJokes = async () => {
 
         // ratings from a specific joke
         await $.get({
-            url: `http://localhost:4000/getratings?index=${first_joke.index}`,
+            url: `https://curly-jazzy-cacao.glitch.me/getratings?index=${first_joke.index}`,
             success: (data) => spec = data
         });
 
@@ -285,7 +285,7 @@ const loadJokes = async () => {
             const joke_index = user_jokes[index].index;
 
             await $.get({
-                url: `http://localhost:4000/getratings?index=${joke_index}`,
+                url: `https://curly-jazzy-cacao.glitch.me/getratings?index=${joke_index}`,
                 success: (data) => spec = data
             });
 
@@ -319,7 +319,7 @@ const loadJokes = async () => {
     $('.like').on('click', function () {
         loader(true);
         $.get({
-            url: `http://localhost:4000/setrating?address=${kit.defaultAccount}&action=like&index=${$(this).attr("data-index")}`
+            url: `https://curly-jazzy-cacao.glitch.me/setrating?address=${kit.defaultAccount}&action=like&index=${$(this).attr("data-index")}`
         }).done(async (data) => {
             return await loadJokes();
         })
@@ -329,7 +329,7 @@ const loadJokes = async () => {
     $('.dislike').on('click', function () {
         loader(true);
         $.get({
-            url: `http://localhost:4000/setrating?address=${kit.defaultAccount}&action=dislike&index=${$(this).attr("data-index")}`
+            url: `https://curly-jazzy-cacao.glitch.me/setrating?address=${kit.defaultAccount}&action=dislike&index=${$(this).attr("data-index")}`
         }).done(async (data) => {
             return await loadJokes();
         })

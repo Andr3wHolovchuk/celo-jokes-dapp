@@ -18,7 +18,7 @@ User can see other users profile and jokes by a specific category, but only owne
 
 # Demo site
 
-DEMO LINK [demo]()
+DEMO LINK [Celo jokes DAPP](https://heartfelt-smakager-8a4db9.netlify.app)
 
 ##NOTE
 WALLET REQUIRED TO TEST THIS DAPP IS [CeloExtensionWallet](https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh)
