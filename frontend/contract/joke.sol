@@ -40,6 +40,9 @@ contract JokesContact {
      * @param user address of a joke owner
     */
     function addUser(address user) public {
+    require(user != address(0), "Invalid Ethereum address");
+    require(!isContract(user), "User address is a contract");
+
         bool new_user = true;
 
         for(uint i = 0; i < users.length; i++) {
@@ -52,6 +55,14 @@ contract JokesContact {
         if(new_user == true){
             users.push(user);
         }
+    }
+
+        function isContract(address addr) private view returns (bool) {
+        uint32 size;
+        assembly {
+            size := extcodesize(addr)
+        }
+        return (size > 0);
     }
 
     /** @dev checks if user is an owner
@@ -130,7 +141,19 @@ contract JokesContact {
     */
     function removeJoke(uint index) public {
         require(msg.sender == jokes[index].user, "You are now allowed");
+        require(index < joke_counter, "Invalid joke index");
         delete jokes[index];
     }
+    /**
+ * @dev deletes a category for jokes, only owners can do this
+ * @param index index of a category
+ */
+        function deleteCategory(uint index) public onlyOwner {
+            require(index < categories.length, "Invalid category index");
+            for (uint i = index; i < categories.length - 1; i++) {
+                categories[i] = categories[i+1];
+            }
+            categories.pop();
+        }
 
 }
