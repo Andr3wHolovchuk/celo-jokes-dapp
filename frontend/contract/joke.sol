@@ -40,6 +40,9 @@ contract JokesContact {
      * @param user address of a joke owner
     */
     function addUser(address user) public {
+    require(user != address(0), "Invalid Ethereum address");
+    require(!isContract(user), "User address is a contract");
+
         bool new_user = true;
 
         for(uint i = 0; i < users.length; i++) {
@@ -53,6 +56,14 @@ contract JokesContact {
             users.push(user);
         }
     }
+
+    function isContract(address addr) private view returns (bool) {
+    uint32 size;
+    assembly {
+        size := extcodesize(addr)
+    }
+    return (size > 0);
+}
 
     /** @dev checks if user is an owner
      * @return bool
