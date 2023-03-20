@@ -73,6 +73,10 @@ contract JokesContact {
     */
     function addJoke(Joke calldata joke_element) public {
         require(msg.sender == joke_element.user, "You are now allowed");
+        require(joke_counter + 1 <= type(uint256).max, "Counter overflow");
+        require(joke_element.category_id < categories.length, "Invalid category_id");
+
+
 
         addUser(joke_element.user);
 
@@ -87,6 +91,8 @@ contract JokesContact {
     */
     function updateJoke(uint index, Joke calldata joke_element) public {
         require(msg.sender == joke_element.user, "You are now allowed");
+        require(joke_element.category_id < categories.length, "Invalid category_id");
+
 
         jokes[index] = joke_element;
     }
@@ -95,6 +101,8 @@ contract JokesContact {
      * @param title title of a category
     */
     function addCategory(string memory title) public onlyOwner{
+        require(category_counter + 1 <= type(uint256).max, "Counter overflow");
+
         categories.push(title);
     }
 
@@ -130,7 +138,13 @@ contract JokesContact {
     */
     function removeJoke(uint index) public {
         require(msg.sender == jokes[index].user, "You are now allowed");
-        delete jokes[index];
+
+         // Swap the deleted joke with the last joke in the mapping
+            uint last_index = joke_counter - 1;
+            jokes[index] = jokes[last_index];
+            delete jokes[last_index];
+    
+            joke_counter--;
     }
 
 }
