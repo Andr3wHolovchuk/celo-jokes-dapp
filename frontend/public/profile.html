@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <title>Profile</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <div class="container-fluid loader">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-md-6 mx-auto text-center">
+        <img src="/cat.svg">
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">JOKES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav collapse navbar-collapse justify-content-end">
+
+          <a class="nav-link float-end" href="/profile.html">PROFILE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container-fluid about">
+
+    <div class="row profile_container">
+      <div class="card col-md-6 mx-auto p-0 my-4">
+        <div class="card-body">
+          <h5 class="card-title text-center">Profile</h5>
+          <div class="card-text text-center">
+            Address: <span id="address"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row profile_container">
+      <div class="card col-md-6 mx-auto p-0 my-4">
+        <div class="card-body">
+          <h5 class="card-title text-center">Statictics</h5>
+          <div class="card-text text-center">
+            <table class="table table-dark table-striped">
+              <tbody>
+                <tr>
+                  <th>Jokes added</th>
+                  <td id="table_jokes_added">-</td>
+                </tr>
+                <tr>
+                  <th>Total likes</th>
+                  <td id="table_total_likes">-</td>
+                </tr>
+                <tr>
+                  <th>Total dislikes</th>
+                  <td id="table_total_dislikes">-</td>
+                </tr>
+                <tr>
+                  <th>Rating</th>
+                  <td id="table_rating">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row" id="row_add_joke">
+      <div class="col-md-6 mx-auto p-0 buts">
+        <button type="button" id="add_joke" class="btn btn-dark">Add a joke</button>
+      </div>
+    </div>
+
+    <div class="row profile_jokes">
+      <div class="card col-md-6 mx-auto p-0 mt-4">
+        <div class="card-header text-center">
+          <h5>Your jokes</h5>
+        </div>
+
+        <div id="first_joke" class="card-body">
+
+        </div>
+      </div>
+    </div>
+
+    <div id="user_jokes">
+
+    </div>
+
+  </section>
+
+
+  <div class="modal profile-modal" tabindex="-1" id="add-new-joke">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">-</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="joke_">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Title</span>
+              <input type="text" class="form-control" placeholder="Joke title" id="joke-title">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="joke-category">Category</span>
+              <select class="form-select" id="select_category">
+
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Joke text</span>
+              <textarea class="form-control" placeholder="Joke full text" id="joke-content"
+                style="height: 100px"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="save_joke">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal profile-modal" tabindex="-1" id="add-new-category">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="category_">
+          <div class="modal-body">
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="category-title">Title</span>
+              <input type="text" class="form-control" placeholder="Category title" id="category_title" required>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="save_category">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" crossorigin="anonymous"></script>
+  <!-- BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

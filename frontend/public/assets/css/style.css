@@ -1,0 +1,158 @@
+body {
+	background: rgb(171, 238, 203);
+	background: linear-gradient(90deg, #9796f0, #fbc7d4);
+}
+
+* {
+	color: #fff !important;
+}
+
+.card-header,
+.navbar,
+.modal-header {
+	background-color: #1B262C !important;
+}
+
+.card {
+	border: 0;
+}
+
+
+.card-body,
+.modal-body,
+.modal-footer,
+.modal-header {
+	background-color: #404258 !important;
+	border: 0;
+}
+
+.modal-header {
+	border-bottom: 1px solid #1B262C !important;
+}
+
+/* .btn-mkn {
+	display: block;
+	max-width: 200px;
+	margin: 0 auto;
+	padding: 8px 30px;
+	color: var(--bs-white);
+	background-color: var(--color2);
+} */
+
+/* .btn-mkn:hover {
+	color: var(--bs-white);
+	background-color: var(--color1);
+} */
+
+.btn-mkn2 {
+	display: block;
+	max-width: 350px;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.btn-mkn2.selected {
+	background-color: #1B262C !important;
+}
+
+.btn-mkn2.selected i {
+	color: green !important;
+}
+
+
+.btn-mkn2:hover {
+	background-color: #1B262C !important;
+}
+
+.btn-mkn2:hover i {
+	color: green !important;
+}
+
+.btn-mkn3 {
+	display: block;
+	max-width: 350px;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.btn-mkn3:hover {
+	background-color: #1B262C !important;
+}
+
+.btn-mkn3:hover i {
+	color: var(--bs-danger) !important;
+}
+
+.btn-mkn3.selected {
+	background-color: #1B262C !important;
+}
+
+.btn-mkn3.selected i {
+	color: var(--bs-danger) !important;
+}
+
+
+/*КОЛІР Оціни жарти інших учасників
+.Line{
+	width: 100px;
+	height: 3px;
+	background-color: var(--color1);
+	margin: 0 auto; */
+
+/* } */
+
+.color1 {
+	color: var(--color1);
+}
+
+.color2 {
+	color: var(--color2);
+}
+
+.bg1 {
+	background-color: var(--color1);
+}
+
+.bg2 {
+	background-color: var(--color2);
+}
+
+.actions .fas {
+	font-size: 22px;
+}
+
+.actions span {
+	font-size: 12px;
+}
+
+th {
+	width: 50%;
+
+}
+
+.profile_jokes .card {
+	background-color: #1B262C !important;
+}
+
+#add_joke:hover {
+	background-color: #404258 !important;
+}
+
+.profile-modal .input-group-text,
+.profile-modal .form-control,
+.profile-modal .form-select {
+	background-color: #1B262C !important;
+}
+
+.row.actions .col-md-3:nth-last-child(-n+2) {
+	padding-top: 1em;
+}
+
+div.loader {
+	background-color: #fff;
+	height: 100%;
+	z-index: 1089;
+	position: fixed;
+	overflow-y: hidden;
+	background-color: rgb(0, 0.5, 0.5, 0.9);
+}
