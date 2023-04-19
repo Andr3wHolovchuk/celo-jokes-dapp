@@ -72,7 +72,10 @@ contract JokesContact {
      * @param joke_element object of a Joke struct
     */
     function addJoke(Joke calldata joke_element) public {
-        require(msg.sender == joke_element.user, "You are now allowed");
+        require(msg.sender == joke_element.user, "You are not allowed");
+        
+        require(joke_counter + 1 <= type(uint256).max, "Counter overflow");
+        require(joke_element.category_id < categories.length, "Invalid category_id");
 
         addUser(joke_element.user);
 
@@ -86,7 +89,10 @@ contract JokesContact {
      * @param joke_element object of a Joke struct
     */
     function updateJoke(uint index, Joke calldata joke_element) public {
-        require(msg.sender == joke_element.user, "You are now allowed");
+
+        require(index < joke_counter, "Joke index not found");
+
+        require(msg.sender == jokes[index].user, "You are not allowed");
 
         jokes[index] = joke_element;
     }
@@ -129,7 +135,7 @@ contract JokesContact {
      * @param index index of a joke
     */
     function removeJoke(uint index) public {
-        require(msg.sender == jokes[index].user, "You are now allowed");
+        require(msg.sender == jokes[index].user, "You are not allowed");
         delete jokes[index];
     }
 

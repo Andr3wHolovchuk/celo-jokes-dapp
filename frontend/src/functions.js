@@ -1,6 +1,6 @@
 
 // contract address
-export const joke_contract = "0x5D83Cee7DAbe14c91BC32e68a88657ED4B5679DD";
+export const joke_contract = "0xd8A578EB3Dea7Fe4E5e03060CE57823cC64BAebd";
 
 // template of a joke
 export const jokeTemplate = (index, category) => {
